@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_Motor" Id="{53cf7bd1-0b81-4de8-baab-b006ee30ff79}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Motor
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	Up,
+	Down,
+	Slow ,
+	Brake AT %Q* :BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Action Name="MoveDown" Id="{6675dcec-373a-4497-9230-c6e26912dd7e}">
+      <Implementation>
+        <ST><![CDATA[Up:=FALSE;
+Down:=TRUE;
+Slow:=FALSE;
+
+Brake:=FALSE;
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="MoveUp" Id="{c5a4fe86-e2cf-4cb5-9371-4806312c4655}">
+      <Implementation>
+        <ST><![CDATA[Up:=TRUE;
+Down:=FALSE;
+Slow:=FALSE;
+
+Brake:=FALSE;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="SlowDown" Id="{eb08bf64-661a-4c24-8ae2-baa450dd8056}">
+      <Implementation>
+        <ST><![CDATA[Slow:=TRUE;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="Stop" Id="{57f754a4-33a4-4431-a0d0-050a24f2b33b}">
+      <Implementation>
+        <ST><![CDATA[Up:=FALSE;
+Down:=FALSE;
+Slow:=FALSE;
+Brake:=TRUE;
+]]></ST>
+      </Implementation>
+    </Action>
+    <LineIds Name="FB_Motor">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Motor.MoveDown">
+      <LineId Id="2" Count="2" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Motor.MoveUp">
+      <LineId Id="1" Count="2" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="4" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Motor.SlowDown">
+      <LineId Id="4" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Motor.Stop">
+      <LineId Id="2" Count="3" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

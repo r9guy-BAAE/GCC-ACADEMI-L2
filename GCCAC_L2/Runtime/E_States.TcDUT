@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="E_States" Id="{7269c024-631c-42f6-8837-0110af43151f}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_States :
+(
+	Call := 0,//same as idle state
+	MoveUp,
+	MoveDown,
+	IncrementFloor,
+	DecrementFloor,
+	SlowDown,
+	Stop
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
